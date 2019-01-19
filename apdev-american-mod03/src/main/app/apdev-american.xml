@@ -71,7 +71,7 @@ payload map ((payload01 , indexOfPayload01) -> {
     <flow name="postFlightFlow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/doctors" allowedMethods="GET" doc:name="HTTP"/>
         <db:select config-ref="Generic_Database_Configuration" doc:name="Database">
-            <db:parameterized-query><![CDATA[SELECT * FROM DOCTORS]]></db:parameterized-query>
+            <db:parameterized-query><![CDATA[SELECT * FROM DOCTORS where name like '%thomas%']]></db:parameterized-query>
         </db:select>
         <mulexml:object-to-xml-transformer doc:name="Object to XML"/>
         <logger message="#[payload]" level="INFO" doc:name="Logger"/>
