@@ -73,7 +73,7 @@ payload map ((payload01 , indexOfPayload01) -> {
         <db:select config-ref="Generic_Database_Configuration" doc:name="Database">
             <db:parameterized-query><![CDATA[SELECT * FROM DOCTORS where name like '%thomas%']]></db:parameterized-query>
         </db:select>
-        <mulexml:object-to-xml-transformer doc:name="Object to XML"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
         <logger message="#[payload]" level="INFO" doc:name="Logger"/>
     </flow>
 </mule>
