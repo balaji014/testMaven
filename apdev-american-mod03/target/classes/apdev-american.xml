@@ -74,6 +74,7 @@ payload map ((payload01 , indexOfPayload01) -> {
             <db:parameterized-query><![CDATA[SELECT * FROM DOCTORS where name like '%thomas%']]></db:parameterized-query>
         </db:select>
         <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <set-payload value="#[payload]" doc:name="Set Payload"/>
         <logger message="#[payload]" level="INFO" doc:name="Logger"/>
     </flow>
 </mule>
